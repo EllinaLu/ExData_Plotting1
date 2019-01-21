@@ -1,5 +1,5 @@
 png(filename = "figure/plot4.png",width = 480,height = 480)
-par(mfrow=c(2,2),mar=c(4,2,4,2))
+par(mfrow=c(2,2),mar=c(4,4,4,2))
 raw <- subset(read.table("household_power_consumption.txt", header = TRUE, sep = ";", dec = "."), Date== "1/2/2007" | Date == "2/2/2007")
 raw$Global_active_power <- as.numeric(as.character(raw$Global_active_power))
 raw$NewTime <- as.POSIXct(strptime(paste(raw$Date, raw$Time, sep=" "), format = "%e/%m/%Y %H:%M:%S"))
