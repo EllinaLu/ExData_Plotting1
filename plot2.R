@@ -1,0 +1,7 @@
+raw <- subset(read.table("household_power_consumption.txt", header = TRUE, sep = ";", dec = "."), Date== "1/2/2007" | Date == "2/2/2007")
+raw$Global_active_power <- as.numeric(as.character(raw$Global_active_power))
+raw$NewTime <- as.POSIXct(strptime(paste(raw$Date, raw$Time, sep=" "), format = "%e/%m/%Y %H:%M:%S"))
+Sys.setlocale("LC_TIME", "English")
+plot(raw$Global_active_power ~ raw$NewTime, type="l", ylab = "Global Active Power (kilowatts)", xlab = "")
+dev.copy(png, "figure/plot2.png", width = 480, height = 480)
+dev.off()
